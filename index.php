@@ -5,11 +5,12 @@
 </head>
 <body>
 <?php 
-	$elementos = scandir("exercises");
+	$carpeta = "controlStructures";
+	$elementos = scandir($carpeta);
 
 	foreach ($elementos as $value) {
-		if (is_file("exercises/".$value)) {
-			echo "<a href=\"exercises/".$value."\"> " . $value ."</a>.<br /> ";
+		if (is_file($carpeta."/".$value)) {
+			echo "<a href=\"$carpeta/".$value."\"> " . $value ."</a>.<br /> ";
 		}		
 	}
 

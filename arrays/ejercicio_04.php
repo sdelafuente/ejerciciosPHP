@@ -7,31 +7,34 @@
   <body>
     <h2>Formulario del clima</h2>
         <?php
+        // Si no se dio submit
         if (!isset($_POST["submit"])) {
-
+            //Metodos de viaje
             $metodos = array('Automobile',"Jet","Train");
 
         ?>
+        <!-- Frase -->
         <p>Travel takes many forms, whether across town, across the country,
             or around the world.
             Here is a list of some common modes of transportation:
         </p>
         <ul>
         <?php
+        //Muestro los metodos
         foreach ($metodos as $value) {
             echo "<li>" . $value . "</li>";
         }
         ?>
         </ul>
-
+        <!-- Formulario para agregar -->
         <form class="" action="ejercicio_04.php" method="post">
             <input type="text" name="nuevo" value="">
             <?php
+            //Envio hidden de la lista actual
             foreach ($metodos as $value) {
                 echo "<input type=\"hidden\" name=\"metodos[]\" value=\"$value\" />\n";
             }
              ?>
-
             <input type="submit" name="submit" value="Go">
         </form>
 
@@ -53,6 +56,7 @@
 
             echo "<p>Agregar mas??</p>";
         ?>
+        <!-- Formulario para agregar mas datos a la lista -->
         <form class="" action="ejercicio_04.php" method="post">
             <input type="text" name="nuevo" value="">
             <?php

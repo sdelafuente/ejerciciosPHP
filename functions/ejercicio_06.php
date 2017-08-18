@@ -22,8 +22,22 @@
                       'Noviembre' => '30',
                       'Diciembre' => '31');
     //Definicion
-    function selectHtml($str){
-        echo "<option value=\"$str\">$str</option>";
+    function makeOptions($arr){
+        $options = "";
+        foreach ($arr as $key => $value) {
+            $options .= "<option value=\"$key\">$key</option>";
+        }
+        return $options;
+    }
+    //Definicion
+    function makeSelect($array){
+
+        if(is_array($array)){
+            $select = "<select name=\"meses\">";
+            $select .= makeOptions($array);
+            $select .= "</select>";
+        }
+        return $select;
     }
 
     //No se envio el formulario - Genero el select
@@ -31,16 +45,11 @@
     ?>
     <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
         <label for="long">Seleccione el mes:</label>
-        <select class="" name="meses">
         <?php
-            foreach ($meses as $key => $value ) {
-                selectHtml($key);
-            }
 
+                echo makeSelect($meses);
         ?>
-        </select>
-
-        <input type="submit" name="submit" value="Ver dia del mes">
+        <input type="submit" name="submit" value="Ver dias del mes">
     </form>
     <?php
     } else {

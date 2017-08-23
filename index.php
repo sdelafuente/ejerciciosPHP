@@ -6,7 +6,7 @@
 <body>
 	<h1>Ejercicios en PHP</h1>
 <?php
-	$carpeta = "functions";
+	$carpeta = "objects";
 	$elementos = scandir($carpeta);
 
 	foreach ($elementos as $value) {
